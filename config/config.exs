@@ -1,7 +1,9 @@
 use Mix.Config
 
 config :po,
-  ecto_repos: [Po.Repo]
+  ecto_repos: [Po.Repo],
+  github_token: System.get_env("GITHUB_TOKEN"),
+  github_username: System.get_env("GITHUB_USERNAME")
 
 config :po, Heroku,
   token: System.get_env("HEROKU_TOKEN")

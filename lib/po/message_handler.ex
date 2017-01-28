@@ -34,6 +34,8 @@ defmodule Po.MessageHandler do
     do: {Po.Command.PS, args}
   defp get_message_handler(["register-app" | args]),
     do: {Po.Command.RegisterApp, args}
+  defp get_message_handler(["release" | args]),
+    do: {Po.Command.Release, args}
   defp get_message_handler(_),
     do: nil
 

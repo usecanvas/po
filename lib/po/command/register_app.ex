@@ -5,8 +5,6 @@ defmodule Po.Command.RegisterApp do
 
   use Po.Command
 
-  import Slack.Sends
-
   alias Po.{RegisteredApp, Repo}
 
   @doc """

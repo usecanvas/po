@@ -6,7 +6,6 @@ defmodule Po.Command.PS do
   use Po.Command
 
   import Ecto.Query, only: [where: 2]
-  import Slack.Sends
 
   alias Po.{RegisteredApp, Repo}
   alias Slack.Web.Chat

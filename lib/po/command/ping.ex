@@ -5,8 +5,6 @@ defmodule Po.Command.Ping do
 
   use Po.Command
 
-  import Slack.Sends
-
   @doc """
   Send a "pong" back to the user.
   """
