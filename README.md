@@ -4,6 +4,12 @@ Po is Canvas's ops panda. In early 2017, upon his passing, his consciousness
 was uploaded to Heroku where he happily continues to help Canvas deploy and 
 monitor their apps.
 
+#### Requirements
+
+- Erlang 19.2
+- Elixir 1.4.1
+- PostgreSQL
+
 #### Running
 
 - `git clone https://github.com/usecanvas/po`
