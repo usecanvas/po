@@ -29,6 +29,6 @@ defmodule Po.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [{:slack, "~> 0.9"}]
   end
 end

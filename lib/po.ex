@@ -1,18 +1,6 @@
 defmodule Po do
   @moduledoc """
-  Documentation for Po.
+  Po is a Slack bot whose purpose is to respond to messages and perform
+  automated ops-related tasks.
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Po.hello
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end
