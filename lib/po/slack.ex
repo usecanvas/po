@@ -9,9 +9,9 @@ defmodule Po.Slack do
 
   require Logger
 
-  @type event :: %{type: String.t}
   @type slack :: map
-  @type state :: []
+  @typep event :: %{type: String.t}
+  @typep state :: []
 
   @doc """
   Log an event when Po first connects to Slack.
@@ -30,8 +30,12 @@ defmodule Po.Slack do
     if po_message?(event, slack) do
       event
       |> Map.get(:text)
-      |> tokenize_command
-      |> MessageHandler.handle_message
+      |> MessageHandler.tokenize_command
+      |> MessageHandler.handle_message(slack)
+      |> case do
+        {:error, {:unrecognized_command, command}} ->
+          Logger.error(~s(evt=unrecognized_command command="#{command}"))
+      end
     end
 
     {:ok, state}
@@ -41,10 +45,7 @@ defmodule Po.Slack do
   defp po_message?(%{type: "message", subtype: _}, _slack),
     do: false
   defp po_message?(%{type: "message", text: text}, slack),
-    do: Regex.run(~r/^<@#{slack.me.id}>/, text)
+    do: Regex.match?(~r/^<@#{slack.me.id}>/, text)
   defp po_message?(_event, _slack),
     do: false
-
-  @spec tokenize_command(String.t) :: [String.t]
-  defp tokenize_command(command), do: command |> String.split(" ") |> tl
 end

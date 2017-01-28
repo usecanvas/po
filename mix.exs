@@ -7,7 +7,10 @@ defmodule Po.Mixfile do
      elixir: "~> 1.4",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
-     deps: deps()]
+     deps: deps(),
+     dialyzer: [flags: ~w(-Werror_handling
+                          -Wrace_conditions
+                          -Wunderspecs)]]
   end
 
   # Configuration for the OTP application
@@ -30,6 +33,7 @@ defmodule Po.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [{:credo, "~> 0.5", only: [:dev]},
+     {:dialyxir, "~> 0.4", only: [:dev], runtime: false},
      {:slack, "~> 0.9"}]
   end
 end
