@@ -28,8 +28,12 @@ defmodule Po.MessageHandler do
   end
 
   @spec get_message_handler(tokens) :: handler | nil
-  defp get_message_handler(["ping" | args]), do: {Po.Command.Ping, args}
-  defp get_message_handler(_), do: nil
+  defp get_message_handler(["ping" | args]),
+    do: {Po.Command.Ping, args}
+  defp get_message_handler(["register-app" | args]),
+    do: {Po.Command.RegisterApp, args}
+  defp get_message_handler(_),
+    do: nil
 
   @doc """
   Convert a Slack message text into a tokenized command for Po to execute.

@@ -1,5 +1,11 @@
 use Mix.Config
 
+config :po,
+  ecto_repos: [Po.Repo]
+
+config :po, Po.Repo,
+  adapter: Ecto.Adapters.Postgres
+
 config :po, Po.Slack,
   token: System.get_env("SLACK_TOKEN")
 
@@ -12,3 +18,4 @@ config :logger,
 config :logger, :console,
   format: "time=$dateT$timeZ level=$level $metadata$message\n"
 
+import_config "#{Mix.env}.exs"

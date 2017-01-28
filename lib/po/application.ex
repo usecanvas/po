@@ -12,7 +12,8 @@ defmodule Po.Application do
 
     children = [
       worker(Slack.Bot, [Po.Slack, [], @slack_token]),
-      supervisor(Task.Supervisor, [[name: Po.MessageHandler]])
+      supervisor(Task.Supervisor, [[name: Po.MessageHandler]]),
+      supervisor(Po.Repo, [])
     ]
 
     opts = [strategy: :one_for_one, name: Po.Supervisor]
