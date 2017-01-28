@@ -1,0 +1,19 @@
+{
+  "env": {
+    "GITHUB_USERNAME": {
+      "description": "Name of GitHub user who has repo access"
+    },
+
+    "GITHUB_TOKEN": {
+      "description": "Token with repo scope for $GITHUB_USERNAME"
+    },
+
+    "HEROKU_TOKEN": {
+      "description": "A token to use to authenticate with Heroku"
+    },
+
+    "SLACK_TOKEN": {
+      "description": "A token to use to authenticate with Slack"
+    }
+  }
+}
