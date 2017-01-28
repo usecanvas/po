@@ -1,11 +1,11 @@
 {
   "env": {
-    "GITHUB_USERNAME": {
-      "description": "Name of GitHub user who has repo access"
-    },
-
     "GITHUB_TOKEN": {
       "description": "Token with repo scope for $GITHUB_USERNAME"
+    },
+
+    "GITHUB_USERNAME": {
+      "description": "Name of GitHub user who has repo access"
     },
 
     "HEROKU_TOKEN": {
