@@ -5,6 +5,8 @@ defmodule Po.Application do
 
   @slack_token Application.get_env(:po, Po.Slack)[:token]
 
+  @spec start(Application.start_type, any)
+        :: {:ok, pid} | {:ok, pid, Application.state} | {:error, any}
   def start(_type, _args) do
     import Supervisor.Spec, warn: false
 
