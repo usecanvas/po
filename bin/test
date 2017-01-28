@@ -1,0 +1,12 @@
+mix credo --strict
+credo=$?
+mix dialyzer --halt-exit-status
+dialyzer=$?
+
+if [[ $credo -eq 0 && $dialyzer -eq 0 ]]; then
+  echo "\n\033[32mEverything OK!\033[0m"
+  exit 0
+else
+  echo "\n\033[31mSome failures/warnings (see above).\033[0m"
+  exit 1
+fi

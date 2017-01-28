@@ -9,8 +9,8 @@ defmodule Po.Slack do
 
   require Logger
 
+  @type event :: %{type: String.t}
   @type slack :: map
-  @typep event :: %{type: String.t}
   @typep state :: []
 
   @doc """
@@ -31,8 +31,10 @@ defmodule Po.Slack do
       event
       |> Map.get(:text)
       |> MessageHandler.tokenize_command
-      |> MessageHandler.handle_message(slack)
+      |> MessageHandler.handle_message(event, slack)
       |> case do
+        {:ok, command} ->
+          Logger.info(~s(evt=command_success command="#{command}"))
         {:error, {:unrecognized_command, command}} ->
           Logger.error(~s(evt=unrecognized_command command="#{command}"))
       end

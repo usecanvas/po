@@ -3,6 +3,9 @@ use Mix.Config
 config :po, Po.Slack,
   token: System.get_env("SLACK_TOKEN")
 
+config :slack,
+  api_token: System.get_env("SLACK_TOKEN")
+
 config :logger,
   utc_log: true
 

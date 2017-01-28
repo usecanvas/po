@@ -11,7 +11,8 @@ defmodule Po.Application do
     import Supervisor.Spec, warn: false
 
     children = [
-      worker(Slack.Bot, [Po.Slack, [], @slack_token])
+      worker(Slack.Bot, [Po.Slack, [], @slack_token]),
+      supervisor(Task.Supervisor, [[name: Po.MessageHandler]])
     ]
 
     opts = [strategy: :one_for_one, name: Po.Supervisor]
