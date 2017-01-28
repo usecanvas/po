@@ -30,6 +30,8 @@ defmodule Po.MessageHandler do
   @spec get_message_handler(tokens) :: handler | nil
   defp get_message_handler(["ping" | args]),
     do: {Po.Command.Ping, args}
+  defp get_message_handler(["ps" | args]),
+    do: {Po.Command.PS, args}
   defp get_message_handler(["register-app" | args]),
     do: {Po.Command.RegisterApp, args}
   defp get_message_handler(_),

@@ -3,6 +3,9 @@ use Mix.Config
 config :po,
   ecto_repos: [Po.Repo]
 
+config :po, Heroku,
+  token: System.get_env("HEROKU_TOKEN")
+
 config :po, Po.Repo,
   adapter: Ecto.Adapters.Postgres
 

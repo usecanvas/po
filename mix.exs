@@ -35,6 +35,8 @@ defmodule Po.Mixfile do
     [{:credo, "~> 0.5", only: [:dev]},
      {:dialyxir, "~> 0.4", only: [:dev], runtime: false},
      {:ecto, "~> 2.1"},
+     {:httpoison, "~> 0.11", override: true},
+     {:poison, "~> 3.1"},
      {:postgrex, "~> 0.13.0"},
      {:slack, "~> 0.9"}]
   end
