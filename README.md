@@ -9,6 +9,7 @@ monitor their apps.
 - Erlang 19.2
 - Elixir 1.4.1
 - PostgreSQL
+- foreman
 
 #### Running
 
