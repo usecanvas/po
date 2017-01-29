@@ -23,7 +23,9 @@ defmodule Po.Command.Release do
     |> case do
       app = %RegisteredApp{} ->
         {:ok, build} = create_build(app, env)
-        LogStreamer.stream(build["output_stream_url"], message.channel)
+
+        build["output_stream_url"]
+        |> LogStreamer.stream(message.channel, window_size: 20)
       nil ->
         send_message(
           ~s(#{to_mention(message[:user])} alias not found.),
